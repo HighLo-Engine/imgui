@@ -436,7 +436,7 @@ void ImGui_ImplVulkan_RenderDrawData(ImDrawData* draw_data, VkCommandBuffer comm
                     VkRect2D scissor;
                     scissor.offset.x = (int32_t)(clip_rect.x);
                     scissor.offset.y = (int32_t)(clip_rect.y);
-                    // NOTE(Yan): sometimes x > z which is invalid, hence the abs
+                    // sometimes x > z which is invalid, hence the abs
                     scissor.extent.width = (uint32_t)(glm::abs(clip_rect.z - clip_rect.x));
                     scissor.extent.height = (uint32_t)(glm::abs(clip_rect.w - clip_rect.y));
                     vkCmdSetScissor(command_buffer, 0, 1, &scissor);
